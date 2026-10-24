@@ -1,0 +1,41 @@
+# Follower/leader arms. Ports and ids verified 2026-10-23 (see ../../SETUP_ARMS.md).
+follower:
+  port: /dev/tty.usbmodem5B901029241
+  id: reach_follower
+  calibration_file: ~/.cache/huggingface/lerobot/calibration/robots/so_follower/reach_follower.json
+  max_relative_target: 10.0
+
+leader:
+  port: /dev/tty.usbmodem5B901012711
+  id: reach_leader
+
+# Units: degrees for body joints, 0-100 for the gripper (LeRobot `use_degrees: true` convention).
+safety:
+  # Stay this far inside calibrated limits. The leader wrist can exceed the follower's hard stop by ~2 deg,
+  # which tripped servo overload protection on 2026-10-23.
+  limit_margin: 3.0
+  # Largest per-step joint change the executor sends. TODO: validate speed caps on hardware.
+  max_step: 5.0
+  step_period_s: 0.02
+  # A move counts as reached when every joint is within this of its target.
+  verify_tolerance: 2.0
+  # hold | disable_torque. Unresolved: safe stop behavior depends on attached tool and load.
+  on_stop: hold
+
+# Fallback limits computed from the 2026-10-23 follower calibration; used when calibration_file is missing.
+joint_limits:
+  shoulder_pan: [-105.7, 105.7]
+  shoulder_lift: [-104.6, 104.6]
+  elbow_flex: [-97.8, 97.8]
+  wrist_flex: [-103.8, 103.8]
+  wrist_roll: [-180.0, 180.0]
+  gripper: [0.0, 100.0]
+
+# TODO: replace with a measured safe resting pose.
+home_pose:
+  shoulder_pan: 0.0
+  shoulder_lift: 0.0
+  elbow_flex: 0.0
+  wrist_flex: 0.0
+  wrist_roll: 0.0
+  gripper: 50.0

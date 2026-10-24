@@ -1,0 +1,11 @@
+# Copy to caretakers.yaml (gitignored) and put the real number there.
+# Configured during setup; not editable by voice in P0.
+caretakers:
+  priya:
+    display_name: Priya
+    relationship: daughter
+    phone_e164: "+15555550100"
+    allowed_task_suggestions: [bring_pill_bottle, bring_water]
+
+user:
+  display_name: Asha

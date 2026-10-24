@@ -1,0 +1,50 @@
+# Joint-space waypoints (degrees; gripper 0-100). Partial poses keep unlisted joints where they are.
+# ALL PLACEHOLDERS. A skill with `validated: false` runs only on the mock arm; the real arm refuses it
+# until the matching physical gate (PRD section 10) passes and this flag is flipped by a human.
+skills:
+  acquire_tool:
+    validated: false
+    waypoints:
+      - {shoulder_pan: -40, shoulder_lift: -20, elbow_flex: 30, wrist_flex: 20, gripper: 80}
+      - {shoulder_lift: -35, elbow_flex: 45, gripper: 10}
+      - {shoulder_lift: -10, elbow_flex: 20}
+  release_tool:
+    validated: false
+    waypoints:
+      - {shoulder_pan: -40, shoulder_lift: -35, elbow_flex: 45, wrist_flex: 20}
+      - {gripper: 80}
+      - {shoulder_lift: -10, elbow_flex: 20}
+  open_drawer:
+    required_tool: drawer_hook
+    validated: false
+    waypoints:
+      - {shoulder_pan: 30, shoulder_lift: -30, elbow_flex: 50, wrist_flex: 10}
+      - {shoulder_lift: -40, elbow_flex: 60}
+      - {shoulder_lift: -15, elbow_flex: 30}
+  pick_object:
+    required_tool: gripper
+    validated: false
+    waypoints:
+      - {shoulder_pan: 30, shoulder_lift: -25, elbow_flex: 45, wrist_flex: 30, gripper: 80}
+      - {shoulder_lift: -40, elbow_flex: 55}
+      - {gripper: 15}
+      - {shoulder_lift: -15, elbow_flex: 30}
+  place_object:
+    required_tool: gripper
+    validated: false
+    waypoints:
+      - {shoulder_pan: 0, shoulder_lift: -30, elbow_flex: 50, wrist_flex: 30}
+      - {gripper: 80}
+      - {shoulder_lift: -10, elbow_flex: 20}
+  acquire_food:
+    required_tool: spoon
+    validated: false
+    waypoints:
+      - {shoulder_pan: -15, shoulder_lift: -30, elbow_flex: 50, wrist_flex: 40}
+      - {wrist_flex: 20}
+      - {shoulder_lift: -15, elbow_flex: 35, wrist_flex: 30}
+  present_food:
+    required_tool: spoon
+    validated: false
+    waypoints:
+      - {shoulder_pan: 10, shoulder_lift: -20, elbow_flex: 35, wrist_flex: 30}

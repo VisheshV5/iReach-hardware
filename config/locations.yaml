@@ -1,0 +1,29 @@
+# Semantic places. Memory stores these ids, never raw pixel coordinates.
+# Frames/poses are filled in after calibration (Gate 2).
+locations:
+  drawer_01:
+    kind: drawer
+    display_name: the drawer
+    aliases: [drawer]
+    handle_pose: null
+    interior_surface: null
+  tray_01:
+    kind: surface
+    display_name: the tray
+    aliases: [tray]
+  table:
+    kind: surface
+    display_name: the table
+    aliases: [desk]
+  handoff_pad:
+    kind: handoff
+    display_name: the handoff pad
+    aliases: [pad]
+  presentation_pad:
+    kind: presentation
+    display_name: the presentation point
+    aliases: []
+  bowl_01:
+    kind: food_source
+    display_name: the bowl
+    aliases: [bowl]

@@ -1,0 +1,30 @@
+# Attachment registry. `gripper` is the bare gripper (no attachment held).
+# tip_transform: gripper -> working tip, filled in after Gate 2 measurement.
+tools:
+  gripper:
+    kind: builtin
+    rack_slot: null
+    skills: [pick_object, place_object]
+  drawer_hook:
+    kind: handle
+    rack_slot: slot_1
+    tip_transform: null
+    skills: [open_drawer]
+  spoon:
+    kind: utensil
+    rack_slot: slot_2
+    tip_transform: null
+    food_safe: true
+    skills: [acquire_food, present_food]
+  fork:
+    # P1: in the kit, but no validated skill yet. Must not block spoon/drawer demos.
+    kind: utensil
+    rack_slot: slot_3
+    tip_transform: null
+    food_safe: true
+    skills: []
+
+rack_slots:
+  slot_1: {pose: null}
+  slot_2: {pose: null}
+  slot_3: {pose: null}

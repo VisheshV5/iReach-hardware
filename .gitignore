@@ -1,0 +1,9 @@
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.env
+data/
+*.db
+*.jsonl
+# Real caretaker phone numbers stay local; commit only the example.
+config/caretakers.yaml

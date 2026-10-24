@@ -1,0 +1,11 @@
+# Unverified: device indices, resolution and intrinsics come from Gate 1-2 checks.
+overhead:
+  model: InnoMaker 1080p 130deg
+  device: null
+  resolution: [1920, 1080]
+  intrinsics_file: calibration/overhead_intrinsics.yaml
+wrist:
+  model: InnoMaker 720p 120deg
+  device: null
+  resolution: [1280, 720]
+  intrinsics_file: calibration/wrist_intrinsics.yaml
